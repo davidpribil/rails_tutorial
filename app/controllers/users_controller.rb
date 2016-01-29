@@ -23,6 +23,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def validate_email
+    users = User.where(username: params[:email])
+    respond_to do |format|
+      format.json { render json: valid = (users.size == 0) }
+    end
+  end
+
   private
 
   def user_params

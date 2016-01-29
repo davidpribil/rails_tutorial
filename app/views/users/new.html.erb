@@ -1,8 +1,8 @@
 <h1>New User</h1>
-<%= form_for user do |f| %>
+<%= form_for user, html: { 'data-validate-email-url' => validate_email_users_path } do |f| %>
   <div class="form-group">
     <%= f.label :username %>:
-    <%= f.text_field :username, class: 'form-control' %>
+    <%= f.text_field :username, class: 'form-control js-username' %>
   </div>
 
   <div class="form-group">
@@ -20,5 +20,5 @@
     <%= f.number_field :age, class: 'form-control' %>
   </div>
 
-  <%= f.submit class: 'btn btn-primary' %>
+  <%= f.submit class: 'btn btn-primary js-new-user-button' %>
 <% end %>
